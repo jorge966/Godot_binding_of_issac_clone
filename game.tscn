@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvx62hk110pr"]
+
+[ext_resource type="PackedScene" uid="uid://ckipfpae86eyr" path="res://player.tscn" id="1_laqnm"]
+[ext_resource type="Script" path="res://game.gd" id="1_r08i6"]
+[ext_resource type="Texture2D" uid="uid://qdn8vf3ug2nx" path="res://art/Ninja Adventure - Asset Pack/Backgrounds/Animated/Plant/SpriteSheet16x16.png" id="2_7014r"]
+[ext_resource type="PackedScene" uid="uid://dqeecl7lx7ilq" path="res://slime.tscn" id="4_uledn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0661"]
+atlas = ExtResource("2_7014r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebjcp"]
+atlas = ExtResource("2_7014r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_027ym"]
+atlas = ExtResource("2_7014r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e02l"]
+atlas = ExtResource("2_7014r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ocq3i"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0661")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebjcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_027ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e02l")
+}],
+"loop": true,
+"name": &"plants",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_r08i6")
+
+[node name="Player" parent="." instance=ExtResource("1_laqnm")]
+z_index = 1
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-46, -1)
+sprite_frames = SubResource("SpriteFrames_ocq3i")
+animation = &"plants"
+autoplay = "plants"
+frame_progress = 0.140245
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(45, 0)
+sprite_frames = SubResource("SpriteFrames_ocq3i")
+animation = &"plants"
+autoplay = "plants"
+frame_progress = 0.74685
+
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -39)
+sprite_frames = SubResource("SpriteFrames_ocq3i")
+animation = &"plants"
+autoplay = "plants"
+frame_progress = 0.74685
+
+[node name="Sprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 38)
+sprite_frames = SubResource("SpriteFrames_ocq3i")
+animation = &"plants"
+autoplay = "plants"
+frame_progress = 0.74685
+
+[node name="slime" parent="." instance=ExtResource("4_uledn")]
